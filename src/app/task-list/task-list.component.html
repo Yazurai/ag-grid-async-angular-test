@@ -1,0 +1,14 @@
+<div class="container">
+  <h1 id="numberOfRows">Number of rows: {{ displayedRows }}</h1>
+  <input type="text" id="quickFilter" name="quickFilter" (keyup)="onQuickFilterChanged($event.target.value)">
+
+  <hr>
+
+  <ag-grid-angular #agGrid style="width: 100%;"
+      suppressRowClickSelection="true"
+      domLayout="autoHeight"
+      [rowData]="agRowData"
+      [gridOptions]="agGridOptions"
+      [columnDefs]="agColumnDefs">
+    </ag-grid-angular>
+</div>
