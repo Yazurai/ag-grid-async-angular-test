@@ -9,6 +9,9 @@ import { ColDef, GridOptions } from 'ag-grid-community';
 export class TaskListComponent implements OnInit {
   displayedRows = 0;
   agGridOptions: GridOptions = {
+    //By setting this to true, ag grid's version of the resizeObserver check is in place
+    //but this is based off of a polling timeout workaround, which interferes with async testing
+    suppressBrowserResizeObserver: true,
     onModelUpdated: () => {
       this.displayedRows = this.agGridOptions.api.getDisplayedRowCount();
     },
